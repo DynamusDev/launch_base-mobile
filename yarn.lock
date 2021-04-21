@@ -4318,6 +4318,11 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+date-and-time@0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/date-and-time/-/date-and-time-0.9.0.tgz#1524579e56dc07675c640b41735a7665c0659240"
+  integrity sha512-4JybB6PbR+EebpFx/KyR5Ybl+TcdXMLIJkyYsCx3P4M4CWGMuDyFF19yh6TyasMAIF5lrsgIxiSHBXh2FFc7Fg==
+
 dayjs@^1.8.15:
   version "1.9.8"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.9.8.tgz#9a65fbdca037e3d5835f98672da6e796f757cd58"
@@ -9029,6 +9034,14 @@ react-native-maps@^0.27.1:
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.27.1.tgz#2f10cd417bb2fd938c9e015b1c9b6d9b1a44b97f"
   integrity sha512-HygBkZBecTnIVRYrSiLRAvu4OmXOYso/A7c6Cy73HkOh9CgGV8Ap5eBea24tvmFGptjj5Hg8AJ94/YbmWK1Okw==
 
+react-native-masked-text@^1.13.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/react-native-masked-text/-/react-native-masked-text-1.13.0.tgz#533fde8c45ccbaa1d6b0df30bf19b84b4ace3de3"
+  integrity sha512-iMku5Ky6DP4fTRosjsYNJOhH8yoBQCzRALBdv1wVDKmCBQhhVE8RHr5EW4SNUjkYTZL473sDdEKl4NI948q9FQ==
+  dependencies:
+    date-and-time "0.9.0"
+    tinymask "1.0.2"
+
 react-native-modal-datetime-picker@^7.4.2:
   version "7.6.1"
   resolved "https://registry.yarnpkg.com/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-7.6.1.tgz#463eaece1af98aa0b2fce00dab6cd203f89b86da"
@@ -10423,6 +10436,11 @@ tinycolor2@^1.4.1:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.2.tgz#3f6a4d1071ad07676d7fa472e1fac40a719d8803"
   integrity sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==
+
+tinymask@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/tinymask/-/tinymask-1.0.2.tgz#df3775a94087b0d3d056c256e8923c01b7ec0941"
+  integrity sha1-3zd1qUCHsNPQVsJW6JI8AbfsCUE=
 
 tmp@^0.0.33:
   version "0.0.33"

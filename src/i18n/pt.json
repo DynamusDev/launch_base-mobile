@@ -6,5 +6,8 @@
   "commonButton": "Botão Comum 🚀 ",
   "input": "Entrada de Texto 🚀",
   "email": "Email",
-  "password": "Senha"
+  "password": "Senha",
+  "translate": "Tradutor",
+  "portuguese": "Português",
+  "english": "Inglês"
 }

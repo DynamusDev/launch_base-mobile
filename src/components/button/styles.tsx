@@ -7,7 +7,7 @@ export const Container = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
 
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 1px;
 `;
 
@@ -18,7 +18,7 @@ export const MenuContainer = styled.TouchableOpacity`
   align-items: center;
   justify-content: space-around;
 
-  border-radius: 10px;
+  border-radius: 5px;
   border-width: 0.3px;
   border-color: #333;
   margin: 1px;
