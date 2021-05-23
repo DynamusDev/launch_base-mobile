@@ -3,8 +3,10 @@
     "jsx": "react-native",
     "target": "esnext",
     "lib": [
-      "esnext"
+      "esnext",
+      "es2020"
     ],
+    "module": "esnext",
     "allowJs": true,
     "skipLibCheck": true,
     "noEmit": true,

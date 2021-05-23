@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 
-import { FirstPage, DemoPage } from './pages';
+import { FirstPage, DemoPage, MapScreen } from './pages';
 
 const { Navigator, Screen } = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -34,8 +34,8 @@ export function DashboardTabs() {
             iconName = 'file-text';
           } else if (route.name === 'Config') {
             iconName = 'settings'
-          }else if (route.name === 'TalkWithUs') {
-            iconName = 'message-square'
+          }else if (route.name === 'Map') {
+            iconName = 'map'
           }else if (route.name === 'Demo') {
             iconName = 'settings'
           }
@@ -52,6 +52,7 @@ export function DashboardTabs() {
     >
       <Tab.Screen name="Home" component={FirstPage} />
       <Tab.Screen name="Demo" component={DemoPage} />
+      <Tab.Screen name="Map" component={MapScreen} />
     </Tab.Navigator>
   );
 }

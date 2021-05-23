@@ -60,7 +60,12 @@ export function Input(props: Props) {
             value={props.value}
             onFocus={() => setBorderColor(props.activeBorderColor || '#1e111d')}
             onBlur={() => setBorderColor(props.borderColor || '#AEAEAE')}
-            keyboardType={props.keyboardType || 'default'}
+            keyboardType={props.mode === 'phoneInput' ?
+                          'phone-pad' : 
+                            props.mode === 'userInput' ?
+                              'email-address' : 
+                                props.keyboardType || 'default'
+            }
             secureTextEntry={props.mode === 'passwordInput' && !showPass}
           />
       }

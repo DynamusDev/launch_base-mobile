@@ -102,16 +102,12 @@ export function FirstPage() {
           <Input
             mode='passwordInput'
             placeholderTx='helloJs'
-            multiline
-            numberOfLines={5}
           />
           <Input
             mode='userInput'
-            multiline
-            numberOfLines={5}
           />
         </Content>
-        <Translate />
+        {/* <Translate /> */}
       </Content>
     </Screen>
   );

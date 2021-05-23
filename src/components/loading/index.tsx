@@ -34,7 +34,6 @@ export function Loading(props: Props) {
         autoPlay 
         loop
         resizeMode='contain'
-        autoSize
         style={{
           height: 380,
         }}

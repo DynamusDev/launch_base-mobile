@@ -21,8 +21,8 @@ export const Mod = styled.View`
 
 export const Indicator = styled.TouchableOpacity`
   width: 50px;
-  height: 5px;
-  background-color: #ccc;
+  height: 8px;
+  background-color: #aaa;
   border-radius: 50px;
   align-self: center;
   margin-top: 5px;

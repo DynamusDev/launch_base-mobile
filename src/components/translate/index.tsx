@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { List } from 'react-native-paper';
-
+import { useTranslateContext } from '../../hooks/useTranslate';
 import { translate } from '../../i18n';
 import { Container, Text } from './styles'
 
@@ -24,7 +24,7 @@ export function Translate(props: TranslateProps) {
   ]
 
   function handleChangeLanguage(sigla: string) {
-
+    
   }
 
   return (
@@ -47,7 +47,6 @@ export function Translate(props: TranslateProps) {
           color: '#fff',
           fontSize: 18,
           textAlign: 'center',
-          fontFamily: 'Ubuntu_400Regular',
         }}
       >
         {

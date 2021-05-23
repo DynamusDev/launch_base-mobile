@@ -1,13 +1,20 @@
 import React, {useState} from 'react';
 import { Alert } from 'react-native'
-import { shade } from 'polished'
-import { Modalize } from 'react-native-modalize';
+import { api } from '../../services/api'
 
 import { Container, Text } from './styles';
-import { Loading, Screen, Header, Icon, Content, Button, Modal } from '../../components';
+import { Loading, Screen, Header, Input, Content, Button, Modal, Map } from '../../components';
 
 export function DemoPage() {
   const [modal, setModal] = useState(false)
+
+  async function getPersons() {
+    const response = await api.get('planets')
+  }
+
+  function openModal() {
+    setModal(true)
+  }
 
   return (
       <Screen 
@@ -28,22 +35,17 @@ export function DemoPage() {
               type='common' 
               bgColor='red' 
               icon='smile'
-              onPress={() => setModal(true)} text='Press for open modal 🚀 ' 
+              onPress={openModal} text='Open Modal' 
             />
           </Content>
           <Modal
             show={modal}
-            close={() => setModal(false)}
+            close={(data) => setModal(data)}
           >
-            <Button 
-              type='common' 
-              bgColor='red' 
-              icon='smile'
-              onPress={()=>{}} text='Press for open modal 🚀 ' 
-            />
+            <Map />
           </Modal>
         </Content>
-        {/* <Loading text='loading 🚀 ' animation='rocket'/> */}
+        {/* <Loading text='loading 🚀 ' animation='panda'/> */}
       </Screen>
   );
 }
