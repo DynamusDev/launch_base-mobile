@@ -4,7 +4,6 @@
 //   );
 // }
 import React, { useEffect, useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "styled-components/native";
 import { ContextProvider } from "./src/hooks/useTranslate";
@@ -27,7 +26,7 @@ export default function App() {
     <ContextProvider {...contextProps}>
       <ThemeProvider theme={dark}>
         <NavigationContainer>
-          <DashboardTabs />
+          <AuthStack />
         </NavigationContainer>
       </ThemeProvider>
     </ContextProvider>

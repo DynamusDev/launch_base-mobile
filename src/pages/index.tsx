@@ -1,3 +1,3 @@
-export * from './firstPage'
-export * from './demoPage'
-export * from './mapScreen'
+export * from "./home";
+export * from "./demoPage";
+export * from "./mapScreen";

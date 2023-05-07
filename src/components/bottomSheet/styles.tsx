@@ -1,10 +1,11 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.View`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
+  bottom: 0;
 `;
 
 export const Mod = styled.View`
@@ -29,6 +30,4 @@ export const Indicator = styled.TouchableOpacity`
   margin-bottom: 5px;
 `;
 
-export const Text = styled.Text`
-  
-`;
+export const Text = styled.Text``;

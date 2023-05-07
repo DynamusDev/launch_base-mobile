@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import { Alert } from 'react-native'
+import React, { useState } from "react";
+import { Alert } from "react-native";
 
-import { Screen, Header, Content, Modal, Map } from '../../components';
+import { Screen, Header, Content, Map, Footer } from "../../components";
 
 export function MapScreen() {
   const coords = [
@@ -9,42 +9,39 @@ export function MapScreen() {
       id: 1,
       latitude: -23.5950896,
       longitude: -46.5730314,
-      latitudeDelta: 0.0922, 
-      longitudeDelta: 0.0421 
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
     },
     {
       id: 2,
       latitude: -23.5950896,
       longitude: -46.5730315,
-      latitudeDelta: 0.0922, 
-      longitudeDelta: 0.0421 
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
     },
     {
       id: 3,
       latitude: -23.5950893,
       longitude: -46.5730311,
-      latitudeDelta: 0.0922, 
-      longitudeDelta: 0.0421 
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
     },
-  ]
+  ];
   return (
-      <Screen 
-        hiddeStatusbar={false}
-        barStyle='light-content'
-        bgColor='rgba(0, 0, 0, 0.8)'
-      >
-        <Header 
-          leftIcon='arrow-left' 
-          title='Map Page 🚀 ' 
-          bgColor='rgba(0, 0, 0, 0.01)'
-          color='#FFF' 
-          onLeftPress={() => Alert.alert('clicou no esquerdo')}
-        />
-        <Content bgColor='#FFF' >
-          <Map 
-            markers={coords}
-           />
-        </Content>
-      </Screen>
+    <Screen barStyle="light-content" bgColor="#4d0035">
+      <Header
+        leftIcon="arrow-left"
+        title="Map Page"
+        bgColor="#4d003599"
+        color="#FFF"
+      />
+      <Content bgColor="#FFF">
+        <Map markers={coords} />
+      </Content>
+      <Footer
+        text="Proudly created by @Dynamusdev"
+        linkTo="https://github.com/DynamusDev"
+      />
+    </Screen>
   );
 }
