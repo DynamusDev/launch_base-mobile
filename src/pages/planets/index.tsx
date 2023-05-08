@@ -1,44 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
 import { Title } from "react-native-paper";
 import { Card, Content, Header, Loading, Screen } from "../../components";
 import { Row, Text } from "./styles";
-import { api } from "../../services/api";
-import reactotron from "reactotron-react-native";
 import { FlatList } from "react-native";
+import { usePlanets } from "../../hooks";
 
 export function Planets() {
-  const [planets, setPlanets] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const getPlanets = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const response = await api.get(`planets`);
-
-      setIsLoading(false);
-      setPlanets(response.data.results);
-      return;
-    } catch (error) {
-      reactotron.error("error", error);
-    }
-  }, [api]);
-
-  const getPeople = useCallback(
-    async (id: string): Promise<string> => {
-      try {
-        const response = await api.get(`people/${id}`);
-
-        return response.data.result.name;
-      } catch (error) {
-        reactotron.error("error", error);
-      }
-    },
-    [api]
-  );
-
-  useEffect(() => {
-    getPlanets();
-  }, [getPlanets]);
+  const { data: planets, isLoading } = usePlanets();
 
   return (
     <Screen barStyle="light-content">

@@ -1,32 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
 import { Title } from "react-native-paper";
 import { Card, Content, Header, Loading, Screen } from "../../components";
 import { Row, Text } from "./styles";
-import { api } from "../../services/api";
-import reactotron from "reactotron-react-native";
 import { FlatList } from "react-native";
 import { translate } from "../../i18n";
+import { usePeople } from "../../hooks";
 
 export function People() {
-  const [people, setPeople] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const getPeople = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const response = await api.get(`people`);
-
-      setIsLoading(false);
-      setPeople(response.data.results);
-      return;
-    } catch (error) {
-      reactotron.error("error", error);
-    }
-  }, [api]);
-
-  useEffect(() => {
-    getPeople();
-  }, [getPeople]);
+  const { data: people, isLoading } = usePeople();
 
   return (
     <Screen barStyle="light-content">
