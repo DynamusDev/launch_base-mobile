@@ -9,5 +9,12 @@
   "password": "Password",
   "translate": "Translate",
   "portuguese": "Portuguese",
-  "english": "English"
+  "english": "English",
+  "planetsScreen": "Planets Screen",
+  "peopleScreen": "People Screen",
+  "male": "Male",
+  "female": "Female",
+  "n/a": "N/A",
+  "loagingCharacters": "Searching Characters",
+  "loagingPlanets": "Searching Planets"
 }

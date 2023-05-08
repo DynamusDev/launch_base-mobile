@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { Container, SafeArea } from "./styles";
+import { Copyright } from "../copyright";
 
 interface Props {
   barStyle?: "light-content" | "dark-content";
@@ -28,43 +29,39 @@ export function Screen(props: Props) {
         backgroundColor: props.bgColor || "#1e111d",
       }}
     >
-      <TouchableWithoutFeedback
-        style={{
-          flex: 1,
-          backgroundColor: props.bgColor || "#1e111d",
-        }}
-        onPress={() => Keyboard.dismiss}
-      >
-        {!props.hiddeStatusbar ? (
-          <SafeArea
-            style={{
-              ...props.style,
-              backgroundColor: props.bgColor || "#1e111d",
-            }}
-          >
-            <StatusBar
-              barStyle={props.barStyle || "dark-content"}
-              backgroundColor={props.barColor || "#1e111d"}
-              hidden={props.hiddeStatusbar}
-            />
-            {props.children}
-          </SafeArea>
-        ) : (
-          <Container
-            style={{
-              ...props.style,
-              backgroundColor: props.bgColor || "#1e111d",
-            }}
-          >
-            <StatusBar
-              barStyle={props.barStyle || "dark-content"}
-              backgroundColor={props.barColor || "transparent"}
-              hidden={props.hiddeStatusbar}
-            />
-            {props.children}
-          </Container>
-        )}
-      </TouchableWithoutFeedback>
+      {!props.hiddeStatusbar ? (
+        <SafeArea
+          style={{
+            ...props.style,
+            backgroundColor: props.bgColor || "#1e111d",
+          }}
+        >
+          <StatusBar
+            barStyle={props.barStyle || "dark-content"}
+            backgroundColor={props.barColor || "#1e111d"}
+            hidden={props.hiddeStatusbar}
+          />
+          {props.children}
+        </SafeArea>
+      ) : (
+        <Container
+          style={{
+            ...props.style,
+            backgroundColor: props.bgColor || "#1e111d",
+          }}
+        >
+          <StatusBar
+            barStyle={props.barStyle || "dark-content"}
+            backgroundColor={props.barColor || "transparent"}
+            hidden={props.hiddeStatusbar}
+          />
+          {props.children}
+        </Container>
+      )}
+      <Copyright
+        text="Proudly created by @Dynamusdev 🦖"
+        linkTo="https://github.com/DynamusDev"
+      />
     </KeyboardAvoidingView>
   );
 }

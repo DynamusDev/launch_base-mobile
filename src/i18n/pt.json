@@ -9,5 +9,13 @@
   "password": "Senha",
   "translate": "Tradutor",
   "portuguese": "Português",
-  "english": "Inglês"
+  "english": "Inglês",
+  "planetsScreen": "Busca de Planetas",
+  "peopleScreen": "Busca de Personagens",
+  "male": "Masculino",
+  "female": "Feminino",
+  "name": "Nome",
+  "loagingCharacters": "Buscando Personagens",
+  "loagingPlanets": "Buscando Planetas",
+  "n/a": "N/A"
 }

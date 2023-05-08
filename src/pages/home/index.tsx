@@ -1,14 +1,7 @@
 import React from "react";
 
 import { Container, Text, Background, Title, Wrapper } from "./styles";
-import {
-  Screen,
-  Content,
-  Card,
-  Button,
-  Footer,
-  Loading,
-} from "../../components";
+import { Screen, Content, Card, Button } from "../../components";
 
 export function Home({ navigation }) {
   return (
@@ -41,13 +34,25 @@ export function Home({ navigation }) {
                 onPress={() => navigation.navigate("demo")}
               />
             </Wrapper>
+            <Wrapper>
+              <Button
+                type="menuButton"
+                text="Buscar Planetas SWApi"
+                bgColor="#004d1287"
+                icon="globe"
+                onPress={() => navigation.navigate("planets")}
+              />
+              <Button
+                type="menuButton"
+                text="Buscar Personagens SWApi"
+                bgColor="#27046d8e"
+                icon="globe"
+                onPress={() => navigation.navigate("people")}
+              />
+            </Wrapper>
           </Container>
         </Background>
       </Content>
-      <Footer
-        text="Proudly created by @Dynamusdev"
-        linkTo="https://github.com/DynamusDev"
-      />
     </Screen>
   );
 }

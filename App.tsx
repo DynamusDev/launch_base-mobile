@@ -1,8 +1,8 @@
-// if (__DEV__) {
-//   import("./src/config/ReactotronConfig").then(() =>
-//     console.log("Reactotron Configured")
-//   );
-// }
+if (__DEV__) {
+  import("./src/config/ReactotronConfig").then(() =>
+    console.log("Reactotron Configured")
+  );
+}
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "styled-components/native";
@@ -12,7 +12,7 @@ import { dark, ligth } from "./src/theme";
 import { AuthStack, DashboardTabs } from "./src/routes";
 
 export default function App() {
-  const [language, setLanguage] = useState({});
+  const [language, setLanguage] = useState("");
 
   useEffect(() => {
     setLanguage("en");
@@ -26,6 +26,7 @@ export default function App() {
     <ContextProvider {...contextProps}>
       <ThemeProvider theme={dark}>
         <NavigationContainer>
+          {/* <DashboardTabs /> */}
           <AuthStack />
         </NavigationContainer>
       </ThemeProvider>

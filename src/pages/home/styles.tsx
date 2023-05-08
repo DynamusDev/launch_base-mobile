@@ -10,6 +10,7 @@ export const Container = styled.View`
 export const Wrapper = styled.View`
   flex-direction: row;
   gap: 4px;
+  margin-bottom: 4px;
 `;
 
 export const Text = styled.Text`

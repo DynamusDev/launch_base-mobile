@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
 
-import { Home, DemoPage, MapScreen } from "./pages";
+import { Home, DemoPage, MapScreen, Planets, People } from "./pages";
 
 const { Navigator, Screen } = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -19,6 +19,8 @@ export function AuthStack() {
       <Screen name="home" component={Home} />
       <Screen name="map" component={MapScreen} />
       <Screen name="demo" component={DemoPage} />
+      <Screen name="planets" component={Planets} />
+      <Screen name="people" component={People} />
     </Navigator>
   );
 }

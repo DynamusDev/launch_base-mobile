@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Alert } from "react-native";
 import { Container, Text } from "./styles";
 import {
@@ -9,7 +9,6 @@ import {
   Button,
   Icon,
   Loading,
-  Footer,
   BottomSheet,
 } from "../../components";
 
@@ -23,7 +22,7 @@ export function DemoPage() {
         bgColor="#27046d8e"
         color="#FFF"
       />
-      <Content scroolable bgColor="#DADADA" style={{ padding: 8 }}>
+      <Content scrollable bgColor="#DADADA" style={{ padding: 8 }}>
         <Content flexDirection="row" style={{ justifyContent: "center" }}>
           <Icon name="link" color="red" />
           <Icon name="activity" color="red" />
@@ -114,10 +113,6 @@ export function DemoPage() {
           />
         </Content>
       </Content>
-      <Footer
-        text="Proudly created by @Dynamusdev"
-        linkTo="https://github.com/DynamusDev"
-      />
       <BottomSheet show={modal} close={(data) => setModal(data)}>
         <Container>
           <Text>Aqui temos um exemplo de modal</Text>

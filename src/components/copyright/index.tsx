@@ -8,7 +8,7 @@ interface CardProps {
   linkTo?: string;
 }
 
-export function Footer(props: CardProps) {
+export function Copyright(props: CardProps) {
   return (
     <Container>
       <Text

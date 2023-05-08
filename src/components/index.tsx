@@ -9,4 +9,4 @@ export * from "./bottomSheet";
 export * from "./translate";
 export * from "./map";
 export * from "./card";
-export * from "./footer";
+export * from "./copyright";

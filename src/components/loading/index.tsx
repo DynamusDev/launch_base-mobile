@@ -8,10 +8,12 @@ import rocket2 from "../../../assets/lottie/rocket2.json";
 import dot from "../../../assets/lottie/dot.json";
 
 import { Container, Text } from "./styles";
+import { translate } from "../../i18n";
 
 interface Props {
   animation?: "panda" | "worm" | "dot" | "rocket" | "rocket2";
   text?: string;
+  tx?: string;
   size?: number;
 }
 
@@ -31,7 +33,7 @@ export function Loading(props: Props) {
 
   return (
     <Container>
-      <Text>{props.text || "loading"}</Text>
+      <Text>{translate(props.tx) ?? props.text ?? "loading"}</Text>
       <LottieView
         source={src}
         autoPlay

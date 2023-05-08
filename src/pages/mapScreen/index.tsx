@@ -38,10 +38,6 @@ export function MapScreen() {
       <Content bgColor="#FFF">
         <Map markers={coords} />
       </Content>
-      <Footer
-        text="Proudly created by @Dynamusdev"
-        linkTo="https://github.com/DynamusDev"
-      />
     </Screen>
   );
 }
