@@ -22,5 +22,6 @@ This is a boilerplate for React-Native/Expo.IO apps
 - TypeScript;
 - Reactotron;
 - React-Navigation;
+- Axios;
 
 Created with love by @dynamusdev 🦖
