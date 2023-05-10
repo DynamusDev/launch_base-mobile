@@ -1,11 +1,11 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 import { TextInputMask } from "react-native-masked-text";
 
 export const Container = styled.View`
   width: 300px;
   height: 45px;
-  background: #FFFFFF;
-  border: 1px solid #AEAEAE;
+  background: #ffffff;
+  border: 1px solid #aeaeae;
   border-radius: 5px;
   margin: 0 auto 14px;
 
@@ -17,7 +17,7 @@ export const IconContainer = styled.View`
   height: 100%;
   width: 48px;
 
-  background: #008AD0;
+  background: #008ad0;
 
   align-items: center;
   justify-content: center;
@@ -33,15 +33,23 @@ export const InputView = styled.TextInput`
   text-align: center;
 `;
 
-export const MaskeredInputView = styled(TextInputMask).attrs(props => ({
-  type: props.maskered || "custom",
-  options: {
-    mask:
-      props.typeMask ||
-      "******************************************************************************************************"
-  },
-  editable: props.edit || true,
-}))`
+interface MaskeredInputViewProps {
+  maskered?: string;
+  typeMask?: string;
+  edit?: boolean;
+}
+
+export const MaskeredInputView = styled(TextInputMask).attrs(
+  (props: MaskeredInputViewProps) => ({
+    type: props.maskered || "custom",
+    options: {
+      mask:
+        props.typeMask ||
+        "******************************************************************************************************",
+    },
+    editable: props.edit || true,
+  })
+)`
   flex: 1;
   font-size: 14px;
   text-align: center;
@@ -49,7 +57,7 @@ export const MaskeredInputView = styled(TextInputMask).attrs(props => ({
 
 export const NullContainer = styled.View`
   height: 100%;
-  width: 48px;
+  min-width: 10px;
 
   background: #fff;
 
