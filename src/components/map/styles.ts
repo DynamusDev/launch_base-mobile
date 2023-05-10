@@ -1,6 +1,6 @@
-import MapView, {Marker} from 'react-native-maps';
-import styled from 'styled-components/native';
-import { Dimensions } from 'react-native';
+import MapView, { Marker } from "react-native-maps";
+import styled from "styled-components/native";
+import { Dimensions } from "react-native";
 
 export const Container = styled(MapView).attrs({})`
   height: 100%;
@@ -15,5 +15,5 @@ export const CustomMarker = styled(Marker).attrs({})`
   height: 50px;
   width: 50px;
   border-radius: 8px;
-  border-width: 0.5px
+  border-width: 0.5px;
 `;

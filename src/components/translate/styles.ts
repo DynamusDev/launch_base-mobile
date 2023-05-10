@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.TouchableOpacity`
   width: 250px;
@@ -12,6 +12,6 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const Text = styled.Text`
-  color: #FFF;
+  color: #fff;
   font-size: 18px;
 `;

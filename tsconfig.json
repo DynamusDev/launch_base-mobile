@@ -2,10 +2,7 @@
   "compilerOptions": {
     "jsx": "react-native",
     "target": "esnext",
-    "lib": [
-      "esnext",
-      "es2020"
-    ],
+    "lib": ["esnext", "es2020"],
     "module": "esnext",
     "allowJs": true,
     "skipLibCheck": true,
