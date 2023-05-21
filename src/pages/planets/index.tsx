@@ -3,9 +3,13 @@ import { Card, Content, Header, Loading, Screen } from "../../components";
 import { Row, Text } from "./styles";
 import { FlatList } from "react-native";
 import { usePlanets } from "../../hooks";
+import { useCallback, useState } from "react";
 
 export function Planets() {
-  const { data: planets, isLoading } = usePlanets();
+  const [page, setPage] = useState(1);
+  const { data: planets, isLoading } = usePlanets(page);
+
+  const nextPage = useCallback(() => setPage((page) => page + 1), [page]);
 
   return (
     <Screen barStyle="light-content">
@@ -18,6 +22,7 @@ export function Planets() {
             data={planets}
             showsVerticalScrollIndicator={false}
             keyExtractor={(item) => String(item.name)}
+            onEndReached={nextPage}
             renderItem={({ item }) => (
               <Card>
                 <Title>{item.name}</Title>

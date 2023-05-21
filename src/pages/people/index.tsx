@@ -4,9 +4,13 @@ import { Row, Text } from "./styles";
 import { FlatList } from "react-native";
 import { translate } from "../../i18n";
 import { usePeople } from "../../hooks";
+import { useCallback, useState } from "react";
 
 export function People() {
-  const { data: people, isLoading } = usePeople();
+  const [page, setPage] = useState(1);
+  const { data: people, isLoading } = usePeople(page);
+
+  const nextPage = useCallback(() => setPage((page) => page + 1), [page]);
 
   return (
     <Screen barStyle="light-content">
@@ -19,6 +23,7 @@ export function People() {
             data={people}
             showsVerticalScrollIndicator={false}
             keyExtractor={(item) => String(item.name)}
+            onEndReached={nextPage}
             renderItem={({ item }) => (
               <Card>
                 <Title>{item.name}</Title>
