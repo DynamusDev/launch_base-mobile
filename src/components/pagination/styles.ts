@@ -7,7 +7,6 @@ export const Container = styled.View`
   width: 100%;
   align-items: center;
   justify-content: center;
-  gap: 8px;
 
   padding: 10px 0;
 `;
@@ -46,6 +45,11 @@ export const ScrollBar = styled.ScrollView.attrs({
   scrollEventThrottle: 200,
   pagingEnable: true,
   nestedScrollEnabled: true,
+
+  contentContainerStyle: {
+    justifyContent: "center",
+    paddingLeft: 12,
+  },
 })`
   max-width: 130px;
 `;
