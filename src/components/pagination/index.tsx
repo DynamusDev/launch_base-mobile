@@ -39,7 +39,7 @@ export function Pagination({
   const goNextPage = useCallback(() => {
     const pageToBack = currentPage + 1;
     scrollRef.current?.scrollTo({
-      x: 15,
+      x: 20,
       animated: true,
     });
     onPress(pageToBack);
