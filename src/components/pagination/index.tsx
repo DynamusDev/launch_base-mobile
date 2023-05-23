@@ -1,8 +1,7 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 
 import * as S from "./styles";
 import { Icon } from "../icon";
-import { ScrollView } from "react-native-gesture-handler";
 
 interface PaginationProps {
   numberOfPages: number;
@@ -21,7 +20,7 @@ export function Pagination({
   activeTextButtonColor,
   inactiveTextButtonColor,
 }: PaginationProps) {
-  const ref = useRef() as any;
+  const scrollRef = useRef() as any;
   const items = Array.from({ length: numberOfPages }, (_, i) => i + 1);
   const verifyActiveButton = useCallback(
     (page: number) => page === currentPage,
@@ -30,11 +29,19 @@ export function Pagination({
 
   const goBackPage = useCallback(() => {
     const pageToBack = currentPage - 1;
+    scrollRef.current?.scrollTo({
+      x: -15,
+      animated: true,
+    });
     onPress(pageToBack);
   }, [currentPage]);
 
   const goNextPage = useCallback(() => {
     const pageToBack = currentPage + 1;
+    scrollRef.current?.scrollTo({
+      x: 30,
+      animated: true,
+    });
     onPress(pageToBack);
   }, [currentPage]);
 
@@ -48,6 +55,18 @@ export function Pagination({
     [currentPage, items]
   );
 
+  const onPressTouch = (index, item) => {
+    const directionToScroll = item >= currentPage ? 15 + item : -10;
+    scrollRef.current?.scrollTo({
+      x: directionToScroll,
+      animated: true,
+    });
+
+    onPress(item);
+  };
+
+  if (!items.length) return;
+
   return (
     <S.Container>
       <S.IconContainer>
@@ -55,9 +74,9 @@ export function Pagination({
           <Icon name="chevron-left" onPress={goBackPage} />
         )}
       </S.IconContainer>
-      <S.ScrollBar>
+      <S.ScrollBar ref={scrollRef}>
         {items.map((item, index) => (
-          <S.Button key={index} onPress={() => onPress(item)}>
+          <S.Button key={index} onPress={() => onPressTouch(index, item)}>
             <S.Text
               isActive={verifyActiveButton(item)}
               activeTextButtonColor={activeTextButtonColor}

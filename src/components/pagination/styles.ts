@@ -25,7 +25,7 @@ interface TextButtonProps {
 
 export const Text = styled.Text<TextButtonProps>`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: ${(props) => (props.isActive ? 700 : 400)};
   color: ${(props) =>
     props.isActive
       ? props.activeTextButtonColor ?? "red"
@@ -46,11 +46,6 @@ export const ScrollBar = styled.ScrollView.attrs({
   scrollEventThrottle: 200,
   pagingEnable: true,
   nestedScrollEnabled: true,
-
-  contentContainerStyle: {
-    justifyContent: "space-evenly",
-    gap: 6,
-  },
 })`
-  max-width: 125px;
+  max-width: 130px;
 `;
