@@ -1,16 +1,24 @@
 import { Title } from "react-native-paper";
-import { Card, Content, Header, Loading, Screen } from "../../components";
+import {
+  Card,
+  Content,
+  Header,
+  Loading,
+  Pagination,
+  Screen,
+} from "../../components";
 import { Row, Text } from "./styles";
 import { FlatList } from "react-native";
 import { translate } from "../../i18n";
 import { usePeople } from "../../hooks";
 import { useCallback, useState } from "react";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function People() {
   const [page, setPage] = useState(1);
-  const { data: people, isLoading } = usePeople(page);
+  const { data, isLoading } = usePeople(page);
 
-  const nextPage = useCallback(() => setPage((page) => page + 1), [page]);
+  const goToPage = useCallback((page: number) => setPage(page), []);
 
   return (
     <Screen barStyle="light-content">
@@ -20,10 +28,9 @@ export function People() {
           <Loading text="Buscando Personagens" />
         ) : (
           <FlatList
-            data={people}
+            data={data.people}
             showsVerticalScrollIndicator={false}
             keyExtractor={(item) => String(item.name)}
-            onEndReached={nextPage}
             renderItem={({ item }) => (
               <Card>
                 <Title>{item.name}</Title>
@@ -39,6 +46,11 @@ export function People() {
             )}
           />
         )}
+        <Pagination
+          numberOfPages={data?.numberOfPages}
+          onPress={(page) => goToPage(page)}
+          currentPage={page}
+        />
       </Content>
     </Screen>
   );

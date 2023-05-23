@@ -10,3 +10,4 @@ export * from "./translate";
 export * from "./map";
 export * from "./card";
 export * from "./copyright";
+export * from "./pagination";

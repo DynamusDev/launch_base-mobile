@@ -1,5 +1,12 @@
 import { Title } from "react-native-paper";
-import { Card, Content, Header, Loading, Screen } from "../../components";
+import {
+  Card,
+  Content,
+  Header,
+  Loading,
+  Pagination,
+  Screen,
+} from "../../components";
 import { Row, Text } from "./styles";
 import { FlatList } from "react-native";
 import { usePlanets } from "../../hooks";
@@ -7,9 +14,9 @@ import { useCallback, useState } from "react";
 
 export function Planets() {
   const [page, setPage] = useState(1);
-  const { data: planets, isLoading } = usePlanets(page);
+  const { data, isLoading } = usePlanets(page);
 
-  const nextPage = useCallback(() => setPage((page) => page + 1), [page]);
+  const goToPage = useCallback((page: number) => setPage(page), []);
 
   return (
     <Screen barStyle="light-content">
@@ -19,10 +26,9 @@ export function Planets() {
           <Loading tx="loagingPlanets" />
         ) : (
           <FlatList
-            data={planets}
+            data={data.planets}
             showsVerticalScrollIndicator={false}
             keyExtractor={(item) => String(item.name)}
-            onEndReached={nextPage}
             renderItem={({ item }) => (
               <Card>
                 <Title>{item.name}</Title>
@@ -38,6 +44,11 @@ export function Planets() {
             )}
           />
         )}
+        <Pagination
+          numberOfPages={data?.numberOfPages}
+          onPress={(page) => goToPage(page)}
+          currentPage={page}
+        />
       </Content>
     </Screen>
   );

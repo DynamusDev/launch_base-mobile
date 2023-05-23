@@ -5,7 +5,14 @@ import reactotron from "reactotron-react-native";
 const fetchPlanets = async (page: number) => {
   try {
     const { data } = await api.get(`planets?page=${page ?? 1}`);
-    return data.results;
+    const planets = data.results;
+    const numberOfPages = data.count / planets.length;
+
+    const result = {
+      planets,
+      numberOfPages,
+    };
+    return result;
   } catch (e) {
     reactotron.error("ERROR", e);
   }
@@ -14,7 +21,14 @@ const fetchPlanets = async (page: number) => {
 const fetchPeople = async (page: number) => {
   try {
     const { data } = await api.get(`people?page=${page ?? 1}`);
-    return data.results;
+    const people = data.results;
+    const numberOfPages = data.count / people.length;
+
+    const result = {
+      people,
+      numberOfPages,
+    };
+    return result;
   } catch (e) {
     reactotron.error("ERROR", e);
   }
