@@ -51,5 +51,5 @@ export const ScrollBar = styled.ScrollView.attrs({
     paddingLeft: 12,
   },
 })`
-  max-width: 130px;
+  max-width: 140px;
 `;

@@ -30,7 +30,8 @@ export function Pagination({
   const goBackPage = useCallback(() => {
     const pageToBack = currentPage - 1;
     scrollRef.current?.scrollTo({
-      x: -15,
+      x: -1,
+      y: 0,
       animated: true,
     });
     onPress(pageToBack);
@@ -39,7 +40,8 @@ export function Pagination({
   const goNextPage = useCallback(() => {
     const pageToBack = currentPage + 1;
     scrollRef.current?.scrollTo({
-      x: 20,
+      x: 35,
+      y: 0,
       animated: true,
     });
     onPress(pageToBack);
@@ -59,6 +61,7 @@ export function Pagination({
     const directionToScroll = item >= currentPage ? 15 + item : -10;
     scrollRef.current?.scrollTo({
       x: directionToScroll,
+      y: 0,
       animated: true,
     });
 
