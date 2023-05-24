@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Alert } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { Alert, Animated } from "react-native";
 import { Container, Text } from "./styles";
 import {
   Screen,
@@ -9,11 +9,12 @@ import {
   Button,
   Icon,
   Loading,
-  BottomSheet,
+  Modal,
 } from "../../components";
 
 export function DemoPage() {
   const [modal, setModal] = useState(false);
+
   return (
     <Screen hiddeStatusbar={false} barStyle="light-content" bgColor="#27046de4">
       <Header
@@ -113,11 +114,11 @@ export function DemoPage() {
           />
         </Content>
       </Content>
-      <BottomSheet show={modal} close={(data) => setModal(data)}>
+      <Modal show={modal} close={(data) => setModal(data)}>
         <Container>
           <Text>Aqui temos um exemplo de modal</Text>
         </Container>
-      </BottomSheet>
+      </Modal>
     </Screen>
   );
 }

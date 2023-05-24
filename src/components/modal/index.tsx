@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Animated,
   Dimensions,
   StyleSheet,
   Keyboard,
   TouchableWithoutFeedback,
+  View,
 } from "react-native";
 
-import { Indicator } from "./styles";
+import { Indicator, Overlay } from "./styles";
 
 interface Props {
   children?: any;
@@ -17,7 +18,7 @@ interface Props {
 
 const { height } = Dimensions.get("window");
 
-export function BottomSheet(props: Props) {
+export function Modal(props: Props) {
   const [showModal, setShowModal] = useState(props.show);
   const [state, setState] = useState({
     opacity: new Animated.Value(0),
@@ -79,6 +80,8 @@ export function BottomSheet(props: Props) {
     setShowModal(props.show);
   }, [props.show]);
 
+  if (!showModal) return;
+
   return (
     <TouchableWithoutFeedback
       style={{
@@ -95,6 +98,7 @@ export function BottomSheet(props: Props) {
           },
         ]}
       >
+        <Overlay onPress={closeModal} />
         <Animated.View
           style={[
             styles.modal,

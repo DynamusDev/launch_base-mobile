@@ -30,4 +30,10 @@ export const Indicator = styled.TouchableOpacity`
   margin-bottom: 5px;
 `;
 
+export const Overlay = styled.TouchableOpacity`
+  background: transparent;
+  height: 100%;
+  width: 100%;
+`;
+
 export const Text = styled.Text``;

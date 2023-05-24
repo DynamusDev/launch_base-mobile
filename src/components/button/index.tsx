@@ -14,7 +14,9 @@ interface Props {
   onLongPress?: any;
   loading?: boolean;
   vibration?: boolean;
+  align?: "left" | "right" | "center";
   tx?: string;
+  children?: React.ReactNode;
   type?: "common" | "iconButton" | "menuButton";
   icon?:
     | "link"
@@ -333,21 +335,29 @@ export function Button(props: Props) {
         <Container
           onPress={props.onPress}
           onLongPress={props.onLongPress}
-          disable={props.loading}
+          disabled={props.loading}
           style={{
             backgroundColor: props.bgColor || "#333",
+            alignItems:
+              props.align === "left"
+                ? "flex-start"
+                : props.align === "right"
+                ? "flex-end"
+                : "center",
           }}
         >
           {props.loading ? (
             <ActivityIndicator color={props.actColor} />
           ) : (
-            <Text
-              style={{
-                color: props.color || "#FFF",
-              }}
-            >
-              {translate(props.tx) || props.text}
-            </Text>
+            props.children ?? (
+              <Text
+                style={{
+                  color: props.color || "#FFF",
+                }}
+              >
+                {translate(props.tx) || props.text}
+              </Text>
+            )
           )}
         </Container>
       )}

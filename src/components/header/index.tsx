@@ -4,6 +4,8 @@ import { useNavigation } from "@react-navigation/native";
 import { Container, Title, Space } from "./styles";
 import { translate } from "../../i18n";
 import { Feather } from "@expo/vector-icons";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Animated } from "react-native";
 
 interface Props {
   onLeftPress?: any;
@@ -12,6 +14,9 @@ interface Props {
   color?: string;
   title?: string;
   tx?: string;
+  animatedValue?: any;
+  animatedHeader?: boolean;
+  maxHeaderHeight?: number;
   leftIcon?:
     | "link"
     | "search"
@@ -590,8 +595,56 @@ interface Props {
 
 export function Header(props: Props) {
   const navigation = useNavigation();
+  const insets = useSafeAreaInsets();
 
-  return (
+  const headerHeight = props.animatedValue?.interpolate({
+    inputRange: [0, props.maxHeaderHeight ?? 100 + insets.top],
+    outputRange: [props.maxHeaderHeight ?? 100 + insets.top, insets.top + 4],
+    extrapolate: "clamp",
+  });
+
+  return props.animatedHeader ? (
+    <Animated.View
+      style={{
+        backgroundColor: props.bgColor || "#1e111d",
+        height: headerHeight,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        paddingLeft: 12,
+        paddingRight: 12,
+      }}
+    >
+      {props.leftIcon ? (
+        <Feather
+          name={props.leftIcon}
+          color={props.color || "#eb6726"}
+          size={25}
+          onPress={
+            props.leftIcon === "arrow-left"
+              ? navigation.goBack
+              : props.onLeftPress
+          }
+        />
+      ) : (
+        <Space />
+      )}
+      <Title style={{ color: props.color || "#eb6726" }}>
+        {" "}
+        {translate(props.tx) || props.title}{" "}
+      </Title>
+      {props.rightIcon ? (
+        <Feather
+          name={props.rightIcon}
+          color={props.color || "#eb6726"}
+          size={25}
+          onPress={props.onRightPress}
+        />
+      ) : (
+        <Space />
+      )}
+    </Animated.View>
+  ) : (
     <Container style={{ backgroundColor: props.bgColor || "#1e111d" }}>
       {props.leftIcon ? (
         <Feather

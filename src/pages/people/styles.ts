@@ -10,6 +10,23 @@ export const Title = styled.Text`
   margin-bottom: 12px;
 `;
 
-export const Row = styled.View`
+export interface RowProps {
+  gap?: number;
+  align?: string;
+}
+
+export interface RowProps {
+  gap?: number;
+  align?: string;
+}
+
+export const Row = styled.View<RowProps>`
   flex-direction: row;
+  align-items: ${(props) =>
+    props.align === "left"
+      ? "flex-start"
+      : props.align === "right"
+      ? "flex-end"
+      : "center"};
+  gap: ${(props) => props.gap ?? 2}px;
 `;

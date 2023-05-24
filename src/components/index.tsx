@@ -5,7 +5,7 @@ export * from "./icon";
 export * from "./content";
 export * from "./button";
 export * from "./input";
-export * from "./bottomSheet";
+export * from "./modal";
 export * from "./translate";
 export * from "./map";
 export * from "./card";
