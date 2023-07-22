@@ -74,7 +74,7 @@ export function People() {
         />
       </Content>
 
-      <Modal show={isOpen} close={(data) => setIsOpen(data)}>
+      <Modal show={isOpen} close={(data) => setIsOpen(data)} height={250}>
         <>
           <Title>{modalContent?.name}</Title>
           <Row gap={32}>

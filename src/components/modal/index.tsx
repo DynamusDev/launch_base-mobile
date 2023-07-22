@@ -14,6 +14,8 @@ interface Props {
   children?: any;
   show: boolean;
   close: (data) => void;
+  height?: number;
+  bg?: string;
 }
 
 const { height } = Dimensions.get("window");
@@ -69,18 +71,14 @@ export function Modal(props: Props) {
   };
 
   useEffect(() => {
-    if (showModal) {
+    if (props.show) {
       openModal();
     } else {
       closeModal();
     }
-  }, [showModal]);
-
-  useEffect(() => {
-    setShowModal(props.show);
   }, [props.show]);
 
-  if (!showModal) return;
+  if (!props.show) return;
 
   return (
     <TouchableWithoutFeedback
@@ -104,6 +102,8 @@ export function Modal(props: Props) {
             styles.modal,
             {
               transform: [{ translateY: state.modal }],
+              height: props.height || "40%",
+              backgroundColor: props.bg || "#FFF",
             },
           ]}
         >
