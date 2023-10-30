@@ -33,7 +33,7 @@ export const Indicator = styled.TouchableOpacity`
 
 export const Overlay = styled.TouchableOpacity`
   background: transparent;
-  height: 100%;
+  height: 300%;
   width: 100%;
 `;
 

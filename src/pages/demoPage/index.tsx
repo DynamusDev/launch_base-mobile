@@ -1,10 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Alert, Animated } from "react-native";
-import { Container, Text } from "./styles";
+import React, { useState } from "react";
+import { Alert } from "react-native";
 import {
   Screen,
   Header,
-  Input,
   Content,
   Button,
   Icon,
@@ -21,7 +19,7 @@ export function DemoPage() {
       <Header
         leftIcon="arrow-left"
         title="Demo Page 🚀 "
-        bgColor="#27046d8e"
+        bgColor="#27046d0"
         color="#FFF"
       />
       <Content scrollable bgColor="#DADADA" style={{ padding: 8 }}>
@@ -114,7 +112,7 @@ export function DemoPage() {
       </Content>
       <Modal
         show={modal}
-        close={(data) => setModal(data)}
+        close={(newState) => setModal(newState)}
         headerTitle="Form no modal"
         height={"28%"}
       >
