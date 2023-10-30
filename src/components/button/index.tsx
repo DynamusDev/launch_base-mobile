@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { ActivityIndicator, Vibration } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
@@ -18,6 +18,7 @@ interface Props {
   tx?: string;
   children?: React.ReactNode;
   type?: "common" | "iconButton" | "menuButton";
+  vibrate?: boolean;
   icon?:
     | "link"
     | "search"
@@ -308,12 +309,21 @@ interface Props {
 }
 
 export function Button(props: Props) {
+  const onPress = useCallback(() => {
+    props.vibrate && Vibration.vibrate(20);
+    props.onPress();
+  }, []);
+
+  const onLongPress = useCallback(() => {
+    props.vibrate && Vibration.vibrate(20);
+    props.onLongPress();
+  }, []);
   return (
     <>
       {props.type === "menuButton" ? (
         <MenuContainer
-          onPress={props.onPress}
-          onLongPress={props.onLongPress}
+          onPress={onPress}
+          onLongPress={onLongPress}
           style={{
             backgroundColor: props.bgColor || "#333",
           }}
@@ -333,8 +343,8 @@ export function Button(props: Props) {
         </MenuContainer>
       ) : (
         <Container
-          onPress={props.onPress}
-          onLongPress={props.onLongPress}
+          onPress={onPress}
+          onLongPress={onLongPress}
           disabled={props.loading}
           style={{
             backgroundColor: props.bgColor || "#333",

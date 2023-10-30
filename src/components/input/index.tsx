@@ -88,9 +88,7 @@ export function Input(props: Props) {
         />
       )}
 
-      <NullContainer
-        style={{ width: props.mode !== "passwordInput" ? 10 : 48 }}
-      >
+      <NullContainer style={{ width: 48 }}>
         {props.mode === "passwordInput" && (
           <Icon
             name={showPass ? "eye-off" : "eye"}

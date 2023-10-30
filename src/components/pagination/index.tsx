@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useRef } from "react";
 
 import * as S from "./styles";
 import { Icon } from "../icon";
+import { Vibration } from "react-native";
 
 interface PaginationProps {
   numberOfPages: number;
@@ -64,6 +65,7 @@ export function Pagination({
       y: 0,
       animated: true,
     });
+    Vibration.vibrate(20);
 
     onPress(item);
   };

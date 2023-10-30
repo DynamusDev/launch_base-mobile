@@ -11,6 +11,7 @@ import {
   Loading,
   Modal,
 } from "../../components";
+import { Form } from "../../components/form";
 
 export function DemoPage() {
   const [modal, setModal] = useState(false);
@@ -91,6 +92,7 @@ export function DemoPage() {
             icon="anchor"
             onPress={() => setModal(true)}
             text="Abrir Modal"
+            vibrate
           />
         </Content>
         <Content flexDirection="row" style={{ marginBottom: 8 }}>
@@ -101,10 +103,6 @@ export function DemoPage() {
           />
           <Button onPress={() => Alert.alert("🚀 ")} tx="commonButton" />
         </Content>
-        <Content>
-          <Input mode="passwordInput" placeholderTx="helloJs" />
-          <Input mode="userInput" />
-        </Content>
 
         <Content style={{ marginTop: 100 }}>
           <Loading
@@ -114,10 +112,13 @@ export function DemoPage() {
           />
         </Content>
       </Content>
-      <Modal show={modal} close={(data) => setModal(data)}>
-        <Container>
-          <Text>Aqui temos um exemplo de modal</Text>
-        </Container>
+      <Modal
+        show={modal}
+        close={(data) => setModal(data)}
+        headerTitle="Form no modal"
+        height={"28%"}
+      >
+        <Form />
       </Modal>
     </Screen>
   );

@@ -8,14 +8,18 @@ import {
   View,
 } from "react-native";
 
-import { Indicator, Overlay } from "./styles";
+import { Header, Indicator, Overlay, Space, Text, styles } from "./styles";
+import { Icon } from "../icon";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 interface Props {
   children?: any;
   show: boolean;
   close: (data) => void;
-  height?: number;
+  height?: number | string;
   bg?: string;
+  headerTitle?: string;
+  headetTitleSize?: number | string;
 }
 
 const { height } = Dimensions.get("window");
@@ -107,7 +111,19 @@ export function Modal(props: Props) {
             },
           ]}
         >
-          <Indicator onPress={closeModal} />
+          {props.headerTitle ? (
+            <Header>
+              <Space style={{ width: 25 }} />
+              <Text size={Number(props.headetTitleSize)}>
+                {props.headerTitle}
+              </Text>
+              <TouchableOpacity onPress={closeModal}>
+                <Icon name="x" />
+              </TouchableOpacity>
+            </Header>
+          ) : (
+            <Indicator onPress={closeModal} />
+          )}
           <Animated.ScrollView
             style={styles.scrollview}
             contentContainerStyle={styles.contentContainerStyle}
@@ -120,32 +136,3 @@ export function Modal(props: Props) {
     </TouchableWithoutFeedback>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    height: "150%",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    position: "absolute",
-    bottom: 0,
-  },
-  modal: {
-    bottom: 0,
-    position: "absolute",
-    height: "40%",
-    backgroundColor: "#fff",
-    width: "100%",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingLeft: 3,
-    paddingRight: 3,
-  },
-  scrollview: {
-    width: "100%",
-    paddingTop: 5,
-  },
-  contentContainerStyle: {
-    alignItems: "center",
-    width: "100%",
-  },
-});
