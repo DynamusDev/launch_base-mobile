@@ -10,9 +10,13 @@ import {
   Modal,
 } from "../../components";
 import { Form } from "../../components/form";
+import { FormInput } from "../../components/form/formInput";
+import reactotron from "reactotron-react-native";
+import { useForm } from "react-hook-form";
 
 export function DemoPage() {
   const [modal, setModal] = useState(false);
+  const { control, handleSubmit } = useForm();
 
   return (
     <Screen hiddeStatusbar={false} barStyle="light-content" bgColor="#27046de4">
@@ -114,9 +118,25 @@ export function DemoPage() {
         show={modal}
         close={(newState) => setModal(newState)}
         headerTitle="Form no modal"
-        height={"28%"}
+        height={"20%"}
       >
-        <Form />
+        <Form
+          handleSubmit={handleSubmit}
+          onSubmit={(data) => reactotron.log(data)}
+        >
+          <FormInput
+            name="username"
+            required
+            mode="userInput"
+            control={control}
+          />
+          <FormInput
+            name="password"
+            required
+            mode="passwordInput"
+            control={control}
+          />
+        </Form>
       </Modal>
     </Screen>
   );

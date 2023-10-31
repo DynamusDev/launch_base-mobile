@@ -11,7 +11,7 @@ import {
 import { translate } from "../../i18n";
 import { Icon } from "../icon";
 
-interface Props {
+export interface InputProps {
   value?: string;
   onChangeText?: (value) => void;
   mode?: "userInput" | "passwordInput" | "phoneInput" | "cpfInput";
@@ -38,7 +38,7 @@ interface Props {
     | "decimal-pad";
 }
 
-export function Input(props: Props) {
+export function Input(props: InputProps) {
   const [borderColor, setBorderColor] = useState("#AEAEAE");
   const [showPass, setShowPass] = useState(false);
   return (

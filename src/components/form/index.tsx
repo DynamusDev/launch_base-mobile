@@ -1,64 +1,25 @@
-import { useForm, Controller } from "react-hook-form";
 import { Content } from "../content";
-import { Input } from "../input";
 import { Button } from "../button";
 import { useCallback } from "react";
-import { styles } from "../modal/styles";
 
-export function Form() {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+type FormProps = {
+  children: React.ReactNode | React.ReactNode[];
+  onSubmit: (data: any) => void;
+  handleSubmit: any;
+};
 
+export function Form(props: FormProps) {
   const handleSubmitForm = useCallback((data: any) => {
-    console.log(data);
+    props.onSubmit(data);
   }, []);
 
   return (
     <Content>
-      <Controller
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Input mode="userInput" value={value} onChangeText={onChange} />
-        )}
-        name="username"
-        rules={{ required: "Campo obrigatório" }}
-        defaultValue=""
-      />
-      <Controller
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Input
-            mode="passwordInput"
-            placeholderTx="helloJs"
-            onChangeText={onChange}
-            value={value}
-          />
-        )}
-        name="password"
-        rules={{ required: "Campo obrigatório" }}
-        defaultValue=""
-      />
-      <Controller
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Input
-            mode="cpfInput"
-            placeholderTx="CPF"
-            onChangeText={onChange}
-            value={value}
-          />
-        )}
-        name="document"
-        rules={{ required: "Campo obrigatório" }}
-        defaultValue=""
-      />
+      {props.children}
       <Button
         bgColor="blue"
         icon="anchor"
-        onPress={handleSubmit(handleSubmitForm)}
+        onPress={props.handleSubmit(handleSubmitForm as any)}
         text="Enviar"
         vibrate
       />
